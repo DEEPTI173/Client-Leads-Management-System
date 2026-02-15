@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="message" id="messageBox"></div>
+    <h1>Lead Management System</h1>
+    <form id="leadForm">
+        <input type="text" id="name" placeholder="Name" requried>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="source" placeholder="Source" required>
+        <input type="text" id="phone" placeholder="Phone" required>
+        <button type="button" id="addLeadBtn">Add Lead</button>
+    </form>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search leads..." oninput="handleSearch()"/>
+    </div>
+    <h2>All Leads</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>Email</th><th>Source</th><th>Phone</th><th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="leadsTableBody"></tbody>
+    </table>
+    <!--Pagination-->
+    <div class="pagination">
+        <button id="prevBtn" onclick="prevPage()">Back</button>
+        <span id="pageInfo"></span>
+        <button id="nextBtn" onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Edit Lead Model-->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h3>Edit Lead</h3>
+            <input type="hidden" id="editId">
+            <input type="text" id="editName" placeholder="Name">
+            <input type="email" id="editEmail" placeholder="Email">
+            <input type="text" id="editSource" placeholder="Source">
+            <input type="text" id="editPhone" placeholder="Phone">
+            <div class="modal-actions">
+                <button id="updateBtn" onclick="updateLead()">Update</button>
+                <button class="cancel" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
